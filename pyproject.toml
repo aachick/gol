@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  | __pycache__/
+  | build/
+  | dist/
+  | *egg-info/
+)/
+'''
+
+[tool.isort]
+profile = "black"
+src_paths = ["gol.py", "gol_test.py"]
+skip = ["setup.py"]
+line_length = 88
+lines_after_imports = 2
+lines_between_types = 1
+include_trailing_comma = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["gol_test.py"]
